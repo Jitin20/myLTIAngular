@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Iproduct } from 'src/app/products/productlist/iproduct';
 
 @Component({
   selector: 'app-productlist',
@@ -9,13 +10,20 @@ export class ProductlistComponent implements OnInit {
 
   pageTitle: string = 'Product List'
   imageWidth: number = 40
-  imageMargin:number = 2
-  listFilter: string = 'cart';
+  imageMargin : number = 2
+ private _listFilter:string ='';
+ get listFilter():string{
+  return this._listFilter;
+ }
+ set listFilter(value:string){
+  this._listFilter = value;
+  console.log('In Setter:', value);
+ }
   show:boolean = false
   toggleshow():void{
     this.show = !this.show
   }
-  products:any[] = [
+  products:Iproduct[] = [
     {
       "productId": 1,
       "productName": "Leaf Rake",   
@@ -71,6 +79,7 @@ export class ProductlistComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.listFilter = 'cart';
   }
 
 }
