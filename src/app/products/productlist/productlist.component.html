@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        Product List
+      {{pageTitle}}
     </div>
     <div class="card-body">
         <div class="row">
@@ -12,12 +12,12 @@
         </div>
     </div>
     <div class="table-responsive">
-        <table class="table">
+        <table class="table" *ngIf="products.length">
             <thead>
                 <tr>
                     <th>
-                        <button class="btn btn-primary">
-                            Show Image
+                        <button class="btn btn-primary" (click)="toggleshow()">
+                            {{show ? 'Hide' : 'Show'}} Image
                         </button>
                     </th>
                     <th>Product</th>
@@ -28,6 +28,14 @@
                 </tr>
             </thead>
             <tbody>
+                <tr *ngFor="let prod of products">
+                    <td><img *ngIf="show" [src]="prod.imageUrl" [style.width.px]="imageWidth" [style.margin.px]="imageMargin"></td>
+                    <td>{{prod.productName}}</td>
+                    <td>{{prod.productCode}}</td>
+                    <td>{{prod.releaseDate}}</td>
+                    <td>{{prod.price}}</td>
+                    <td>{{prod.starRating}}</td>
+                </tr>
                 <!-- to be left blank as we dont wanna hard code -->
             </tbody>
 
