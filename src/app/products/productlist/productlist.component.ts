@@ -10,6 +10,7 @@ export class ProductlistComponent implements OnInit {
   pageTitle: string = 'Product List'
   imageWidth: number = 40
   imageMargin:number = 2
+  listFilter: string = 'cart';
   show:boolean = false
   toggleshow():void{
     this.show = !this.show
