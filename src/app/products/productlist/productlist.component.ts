@@ -18,11 +18,18 @@ export class ProductlistComponent implements OnInit {
  set listFilter(value:string){
   this._listFilter = value;
   console.log('In Setter:', value);
+  this.filteredProducts = this.performFilter(value)
  }
   show:boolean = false
   toggleshow():void{
     this.show = !this.show
   }
+  performFilter(filterBy:string):Iproduct[]{
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.products.filter((product: Iproduct)=>
+    product.productName.toLocaleLowerCase().includes(filterBy));
+  }
+  filteredProducts:Iproduct[]=[];
   products:Iproduct[] = [
     {
       "productId": 1,
