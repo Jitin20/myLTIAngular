@@ -35,7 +35,9 @@
                     <td>{{prod.productCode}}</td>
                     <td>{{prod.releaseDate}}</td>
                     <td>{{prod.price | currency:'USD'}}</td>
-                    <td>{{prod.starRating}}</td>
+                    <!-- Using Propety Binding here for showing the stars -->
+                    <td> <app-starcomponent [rating]="prod.starRating" 
+                        (ratingClicked)="onRatingClicked($event)"></app-starcomponent> </td>
                 </tr>
                 <!-- to be left blank as we dont wanna hard code -->
             </tbody>

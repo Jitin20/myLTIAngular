@@ -6,11 +6,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductlistComponent } from './products/productlist/productlist.component';
+import { StarcomponentComponent } from './shared/starcomponent/starcomponent.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductlistComponent
+    ProductlistComponent,
+    StarcomponentComponent
   ],
   imports: [
     BrowserModule,
