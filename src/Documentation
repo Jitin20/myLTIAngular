@@ -1,0 +1,84 @@
+Services:Angular provides a byiltin injector that maintains a container of created service instances called as a singleton
+if comp  need service class can define as dependency . injector provudes service class instance when instantiated in a construcrtpr.
+This is called dependency injection used for sharing the data.
+
+Dep Inject: A coding pattern in which a class recives the insnts of a object it need called dependencies from ext source rather than creating itsel.
+Using Injectable servuce
+Create class
+Metadata 
+Decorator @Injectible decorator 
+
+Regoster service root injector : Avb throught the app
+Recommended
+
+Comp injector: Only to that component and its child nested
+Isolates
+Provide multiple instances
+
+providedIN : root //glpbal
+providers: [Product Service] for particular comp in com decoratpr
+
+Reactive Extensions: (RxJs)
+library for composing data using obs sequences
+
+Transfrom fata usng operators Similar to .Net LINQ
+For working with async data such as HTTP data
+
+Sync: Phone Call, real time
+Async data: No immediate response, ex EMAIL
+
+HTTP rqsta re async
+Request response (async)
+To Set up notifications used RXJS
+
+Observable: Collection of item over time, does not retain item over time.
+Letters arrive and go, mouse move button click over time
+
+Observable is totally dependent on subscribe
+When we subscribe obs emit the data.
+
+next next item is emitted
+Error error is emitted subs stopped
+complete
+
+Observable emits notifications
+Observvble Pipe: when letter emitted , pipe to lowercase, enlarge pipe
+
+USAGE:
+Start Observable
+Pipe to transaform
+Process notification(next error, complete)
+stop by unsubscribe
+
+import observable, range, map, filter from rxjs 
+
+private url = ''
+ constructor initialization
+
+ geProducts(): Observable<IProduct[]>{
+    return this.http.get<TYPE OF RESPONSE>(this.url)
+ }
+
+ our function return observable that emit array of products.
+ So basically this method just retirns an observable which is useless untill we subscribe to a observable.
+ Hence Subscription lead to emittment of the data.
+
+
+To add the routing there itself, use for root while importig the routing module in module.ts
+
+Welcome page and error page are added in the app.module.ts itself
+
+also navbar can be added in the template itself so that it will always load on the top.
+
+There are two ways of reading parameters of route, meand going based on particlar id, 
+Activated route is must
+ followed by snapshot.paramMap.get('id')
+ folowed by tyoe casing and subscribing,
+
+ Anther is snapshot.paramMap.subscribe(
+    params=>console.log(params.get('id'))
+ )
+
+ We have used the first one hence it is more accessible and easy.
+
+ Export array used to share directive, component   , pipe to anotehr component
